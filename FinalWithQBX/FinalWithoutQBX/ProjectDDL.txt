@@ -1,0 +1,26 @@
+CREATE TABLE Players(ID Varchar(30) Primary Key,
+FirstName varchar(30),
+LastName varchar(30),
+Address varchar(30) NOT NULL, 
+LastEvents Varchar(40) NOT NULL,
+Merit int);
+
+Create Table MatchStarting (RoomID varchar(30) NOT NULL,
+FirstName varchar(30), 
+LastName varchar(30),   
+MatchStarts time);
+Create Table RoomNum (RoomID varchar(30) PRIMARY KEY,
+teamnames varchar(40));
+
+Create Table BehvioralMerit (Merit int NOT NULL,
+VoilationID varchar(30) NOT NULL , 
+Reason varchar (40),
+CONTRAINT FK_Voilation_ID FOREIGN KEY (VoilationID) References Players(ID));
+
+Create table RankingPeople(ID varchar(30) NOT NULL REFERENCES Player(ID),
+Score int);
+
+Create table Crew (FirstName varchar(30),
+LastName varchar(30),
+ID Varchar(30) NOT NULL REFERENCES Players(ID),
+teamnames varchar(40) NOT NULL);
